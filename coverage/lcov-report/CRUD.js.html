@@ -183,9 +183,7 @@
 <a name='L118'></a><a href='#L118'>118</a>
 <a name='L119'></a><a href='#L119'>119</a>
 <a name='L120'></a><a href='#L120'>120</a>
-<a name='L121'></a><a href='#L121'>121</a>
-<a name='L122'></a><a href='#L122'>122</a>
-<a name='L123'></a><a href='#L123'>123</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L121'></a><a href='#L121'>121</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -205,7 +203,6 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -306,14 +303,13 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { listContainer, displaytasks, tasks } from './display.js';
 &nbsp;
 const form = document.querySelector('.form');
 const todoInput = document.querySelector('#todo-input');
 const arrow = document.querySelector('.arrow-img');
 /* eslint-disable no-use-before-define */
-<span class="missing-if-branch" title="if path not taken" >I</span>if(form){
+<span class="missing-if-branch" title="if path not taken" >I</span>if (form) {
 <span class="cstat-no" title="statement not covered" >  form.addEventListener('submit', <span class="fstat-no" title="function not covered" >(e</span>) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    e.preventDefault();</span>
 <span class="cstat-no" title="statement not covered" >    saveTodo();</span>
@@ -322,14 +318,13 @@ const arrow = document.querySelector('.arrow-img');
   });
 }
 &nbsp;
-<span class="missing-if-branch" title="if path not taken" >I</span>if(arrow){
+<span class="missing-if-branch" title="if path not taken" >I</span>if (arrow) {
 <span class="cstat-no" title="statement not covered" >  arrow.addEventListener('click', <span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    saveTodo();</span>
 <span class="cstat-no" title="statement not covered" >    displaytasks();</span>
 <span class="cstat-no" title="statement not covered" >    localStorage.setItem('tasks', JSON.stringify(tasks));</span>
   });
 }
-&nbsp;
 &nbsp;
 // Save todo function
 export const saveTodo = (todoIndex = <span class="branch-0 cbranch-no" title="branch not covered" >null,</span> todoValue = <span class="branch-0 cbranch-no" title="branch not covered" >todoInput.value)</span> =&gt; {
@@ -348,7 +343,7 @@ export const saveTodo = (todoIndex = <span class="branch-0 cbranch-no" title="br
 };
 &nbsp;
 // eventlistener for all Tasks
-<span class="missing-if-branch" title="if path not taken" >I</span>if(listContainer){
+<span class="missing-if-branch" title="if path not taken" >I</span>if (listContainer) {
 <span class="cstat-no" title="statement not covered" >  listContainer.addEventListener('click', <span class="fstat-no" title="function not covered" >(e</span>) =&gt; {</span>
     const { target } = <span class="cstat-no" title="statement not covered" >e;</span>
     const parentElement = <span class="cstat-no" title="statement not covered" >target.parentNode;</span>
@@ -395,7 +390,7 @@ const editTodo = <span class="fstat-no" title="function not covered" >(t</span>o
 export const deleteTodo = (todoId) =&gt; {
   tasks.splice(todoId - 1, 1); // remove one element at index todoId -1
   const todoElement = document.getElementById(todoId);
-  <span class="missing-if-branch" title="else path not taken" >E</span>if(todoElement){
+  <span class="missing-if-branch" title="else path not taken" >E</span>if (todoElement) {
     todoElement.parentNode.removeChild(todoElement);
   }
   for (let i = 0; i &lt; tasks.length; i += 1) {
@@ -416,7 +411,7 @@ function <span class="fstat-no" title="function not covered" >checkTodo(</span>t
 }
 &nbsp;
 const btnClear = document.querySelector('.clear-btn');
-<span class="missing-if-branch" title="if path not taken" >I</span>if(btnClear){
+<span class="missing-if-branch" title="if path not taken" >I</span>if (btnClear) {
 <span class="cstat-no" title="statement not covered" >  btnClear.addEventListener('click', <span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
     const incompleteTasks = <span class="cstat-no" title="statement not covered" >tasks.filter(<span class="fstat-no" title="function not covered" >(t</span>odo) =&gt; <span class="cstat-no" title="statement not covered" >!todo.completed)</span>;</span>
 <span class="cstat-no" title="statement not covered" >    tasks.length = 0; </span>// clear the original tasks array
@@ -428,7 +423,6 @@ const btnClear = document.querySelector('.clear-btn');
 <span class="cstat-no" title="statement not covered" >    localStorage.setItem('tasks', JSON.stringify(tasks));</span>
   });
 }
-&nbsp;
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -436,7 +430,7 @@ const btnClear = document.querySelector('.clear-btn');
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-03-08T12:53:26.370Z
+                at 2023-03-08T13:47:12.076Z
             </div>
         <script src="prettify.js"></script>
         <script>

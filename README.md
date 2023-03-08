@@ -98,6 +98,16 @@ Npx hint .   for testing the html file errors
  
 npx stylelint "**/*.{css,scss}"     to check errors for CSS file.
 
+ npx eslint .
+
+npm install --save-dev jest   
+
+npm install --save-dev jest-environment-jsdom
+
+npm install --save-dev @babel/plugin-transform-modules-commonjs
+
+npm test
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
  
