@@ -1,7 +1,7 @@
 export const listContainer = document.querySelector('.to-do-holder');
 export const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 export const displaytasks = () => {
-  listContainer.innerHTML = '';
+  // listContainer.innerHTML = '';
   tasks.forEach((todo) => {
     tasks.sort((a, b) => a.index - b.index);
     listContainer.innerHTML += `
