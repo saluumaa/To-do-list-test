@@ -4,7 +4,8 @@ export const displaytasks = () => {
   // listContainer.innerHTML = '';
   tasks.forEach((todo) => {
     tasks.sort((a, b) => a.index - b.index);
-    listContainer.innerHTML += `
+    if (listContainer) {
+      listContainer.innerHTML += `
          <div class="todo" id=${todo.index}>
           <input type="checkbox" class="checkbox"${todo.completed ? 'checked' : ''}
           data-action="check">
@@ -13,6 +14,7 @@ export const displaytasks = () => {
           <i class="fa-solid fa-trash-can delete" data-action="delete"> </i>
           </div>
           `;
+    }
   });
 };
 

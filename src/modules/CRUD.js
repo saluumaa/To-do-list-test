@@ -4,7 +4,7 @@ const form = document.querySelector('.form');
 const todoInput = document.querySelector('#todo-input');
 const arrow = document.querySelector('.arrow-img');
 /* eslint-disable no-use-before-define */
-if(form){
+if (form) {
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     saveTodo();
@@ -13,14 +13,13 @@ if(form){
   });
 }
 
-if(arrow){
+if (arrow) {
   arrow.addEventListener('click', () => {
     saveTodo();
     displaytasks();
     localStorage.setItem('tasks', JSON.stringify(tasks));
   });
 }
-
 
 // Save todo function
 export const saveTodo = (todoIndex = null, todoValue = todoInput.value) => {
@@ -39,7 +38,7 @@ export const saveTodo = (todoIndex = null, todoValue = todoInput.value) => {
 };
 
 // eventlistener for all Tasks
-if(listContainer){
+if (listContainer) {
   listContainer.addEventListener('click', (e) => {
     const { target } = e;
     const parentElement = target.parentNode;
@@ -86,7 +85,7 @@ const editTodo = (todoId) => {
 export const deleteTodo = (todoId) => {
   tasks.splice(todoId - 1, 1); // remove one element at index todoId -1
   const todoElement = document.getElementById(todoId);
-  if(todoElement){
+  if (todoElement) {
     todoElement.parentNode.removeChild(todoElement);
   }
   for (let i = 0; i < tasks.length; i += 1) {
@@ -107,7 +106,7 @@ function checkTodo(todoId) {
 }
 
 const btnClear = document.querySelector('.clear-btn');
-if(btnClear){
+if (btnClear) {
   btnClear.addEventListener('click', () => {
     const incompleteTasks = tasks.filter((todo) => !todo.completed);
     tasks.length = 0; // clear the original tasks array
@@ -119,4 +118,3 @@ if(btnClear){
     localStorage.setItem('tasks', JSON.stringify(tasks));
   });
 }
-
