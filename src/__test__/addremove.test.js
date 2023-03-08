@@ -45,8 +45,8 @@ describe('deleteTodo', () => {
   it('should remove exactly one <li> element from the list in the DOM', () => {
     deleteTodo(2); 
     const listItems = document.querySelectorAll('li');
-    expect(listItems).toHaveLength(2); // expect only 2 list items left after removing one
-    expect(listItems[0].textContent).toBe('Task 1'); // expect first list item to be Task 1
-    expect(listItems[1].textContent).toBe('Task 3'); // expect second list item to be Task 3
+    expect(listItems).toHaveLength(2); 
+    expect(listItems[0].textContent).toBe('Task 1'); 
+    expect(listItems[1].textContent).toBe('Task 3'); 
   });
 });
