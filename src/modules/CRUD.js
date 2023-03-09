@@ -24,7 +24,7 @@ if (arrow) {
 // Save todo function
 export const saveTodo = (todoIndex = null, todoValue = todoInput.value) => {
   if (todoIndex !== null) {
-    tasks[todoIndex].description = todoValue;
+    tasks.description = todoValue;
   } else {
     const index = tasks.length + 1;
     tasks.push({
@@ -60,8 +60,11 @@ if (listContainer) {
   });
 }
 
-const editTodo = (todoId) => {
+export const editTodo = (todoId) => {
   const container = document.getElementById(todoId);
+  if (!container) {
+    return;
+  }
   const taskDescription = container.querySelector('.list-text');
   const editIcon = container.querySelector('.Edit');
   const deleteIcon = container.querySelector('.delete');
@@ -95,7 +98,7 @@ export const deleteTodo = (todoId) => {
   localStorage.setItem('tasks', JSON.stringify(tasks));
 };
 
-function checkTodo(todoId) {
+export function checkTodo(todoId) {
   tasks.forEach((todo, index) => {
     if (index === todoId - 1) {
       todo.completed = !todo.completed;
@@ -105,7 +108,7 @@ function checkTodo(todoId) {
   localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
-const btnClear = document.querySelector('.clear-btn');
+export const btnClear = document.querySelector('.clear-btn');
 if (btnClear) {
   btnClear.addEventListener('click', () => {
     const incompleteTasks = tasks.filter((todo) => !todo.completed);
