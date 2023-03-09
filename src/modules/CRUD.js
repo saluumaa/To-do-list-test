@@ -24,7 +24,7 @@ if (arrow) {
 // Save todo function
 export const saveTodo = (todoIndex = null, todoValue = todoInput.value) => {
   if (todoIndex !== null) {
-    tasks[todoIndex].description = todoValue;
+    tasks.description = todoValue;
   } else {
     const index = tasks.length + 1;
     tasks.push({
@@ -62,26 +62,27 @@ if (listContainer) {
 
 export const editTodo = (todoId) => {
   const container = document.getElementById(todoId);
-  if (container) {
-    const taskDescription = container.querySelector('.list-text');
-    const editIcon = container.querySelector('.Edit');
-    const deleteIcon = container.querySelector('.delete');
-    taskDescription.contentEditable = true;
-    taskDescription.focus();
-    editIcon.classList.add('hide');
-    deleteIcon.classList.add('show');
-    taskDescription.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter') {
-        e.preventDefault();
-        saveTodo(todoId - 1, taskDescription.textContent);
-        displaytasks();
-        localStorage.setItem('tasks', JSON.stringify(tasks));
-        taskDescription.contentEditable = false;
-        editIcon.classList.remove('hide');
-        deleteIcon.classList.remove('show');
-      }
-    });
+  if (!container) {
+    return;
   }
+  const taskDescription = container.querySelector('.list-text');
+  const editIcon = container.querySelector('.Edit');
+  const deleteIcon = container.querySelector('.delete');
+  taskDescription.contentEditable = true;
+  taskDescription.focus();
+  editIcon.classList.add('hide');
+  deleteIcon.classList.add('show');
+  taskDescription.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      saveTodo(todoId - 1, taskDescription.textContent);
+      displaytasks();
+      localStorage.setItem('tasks', JSON.stringify(tasks));
+      taskDescription.contentEditable = false;
+      editIcon.classList.remove('hide');
+      deleteIcon.classList.remove('show');
+    }
+  });
 };
 
 export const deleteTodo = (todoId) => {
