@@ -60,26 +60,28 @@ if (listContainer) {
   });
 }
 
-const editTodo = (todoId) => {
+export const editTodo = (todoId) => {
   const container = document.getElementById(todoId);
-  const taskDescription = container.querySelector('.list-text');
-  const editIcon = container.querySelector('.Edit');
-  const deleteIcon = container.querySelector('.delete');
-  taskDescription.contentEditable = true;
-  taskDescription.focus();
-  editIcon.classList.add('hide');
-  deleteIcon.classList.add('show');
-  taskDescription.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') {
-      e.preventDefault();
-      saveTodo(todoId - 1, taskDescription.textContent);
-      displaytasks();
-      localStorage.setItem('tasks', JSON.stringify(tasks));
-      taskDescription.contentEditable = false;
-      editIcon.classList.remove('hide');
-      deleteIcon.classList.remove('show');
-    }
-  });
+  if (container) {
+    const taskDescription = container.querySelector('.list-text');
+    const editIcon = container.querySelector('.Edit');
+    const deleteIcon = container.querySelector('.delete');
+    taskDescription.contentEditable = true;
+    taskDescription.focus();
+    editIcon.classList.add('hide');
+    deleteIcon.classList.add('show');
+    taskDescription.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        saveTodo(todoId - 1, taskDescription.textContent);
+        displaytasks();
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+        taskDescription.contentEditable = false;
+        editIcon.classList.remove('hide');
+        deleteIcon.classList.remove('show');
+      }
+    });
+  }
 };
 
 export const deleteTodo = (todoId) => {
@@ -95,7 +97,7 @@ export const deleteTodo = (todoId) => {
   localStorage.setItem('tasks', JSON.stringify(tasks));
 };
 
-function checkTodo(todoId) {
+export function checkTodo(todoId) {
   tasks.forEach((todo, index) => {
     if (index === todoId - 1) {
       todo.completed = !todo.completed;
@@ -105,7 +107,7 @@ function checkTodo(todoId) {
   localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
-const btnClear = document.querySelector('.clear-btn');
+export const btnClear = document.querySelector('.clear-btn');
 if (btnClear) {
   btnClear.addEventListener('click', () => {
     const incompleteTasks = tasks.filter((todo) => !todo.completed);
