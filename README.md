@@ -98,7 +98,7 @@ Npx hint .   for testing the html file errors
  
 npx stylelint "**/*.{css,scss}"     to check errors for CSS file.
 
- npx eslint .
+ npx eslint .                      to check javascript errors
 
 npm install --save-dev jest   
 
